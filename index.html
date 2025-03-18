@@ -36,14 +36,13 @@
         .btn:hover {
             background: #2980b9;
         }
-        .tableauPlaceholder {
+        #vizContainer {
             width: 100%;
-            max-width: 100%;
             height: 500px;
             margin-top: 20px;
         }
     </style>
-    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/viz_v1.js"></script>
+    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -56,21 +55,17 @@
         </p>
         
         <h3>צפו בדשבורד שלי:</h3>
-        <div class='tableauPlaceholder' id='viz1689819118395'>
-            <noscript>
-                <a href='https://public.tableau.com/views/Book1_17411174755880/Dashboard2'>
-                    <img alt='Tableau Visualization' src='https://public.tableau.com/static/images/Bo/Book1_17411174755880/Dashboard2/1_rss.png' />
-                </a>
-            </noscript>
-        </div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1689819118395');
-            var vizElement = document.createElement('iframe');
-            vizElement.src = 'https://public.tableau.com/views/Book1_17411174755880/Dashboard2?:embed=yes&:display_count=yes';
-            vizElement.width = '100%';
-            vizElement.height = '500px';
-            vizElement.frameBorder = '0';
-            divElement.appendChild(vizElement);
+        <div id="vizContainer"></div>
+        <script type="text/javascript">
+            var vizContainer = document.getElementById('vizContainer');
+            var vizUrl = 'https://public.tableau.com/views/Book1_17411174755880/Dashboard2';
+            var options = {
+                width: '100%',
+                height: '500px',
+                hideTabs: true,
+                hideToolbar: true
+            };
+            var viz = new tableau.Viz(vizContainer, vizUrl, options);
         </script>
         
         <h3>רוצים ללמוד עוד?</h3>
